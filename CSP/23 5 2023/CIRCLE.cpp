@@ -26,15 +26,15 @@ void dfs(int u) {
     }
 }
 int main() {
-    //freopen("CIRCLE.INP","r",stdin);
-    //freopen("CIRCLE.OUT","w",stdout);
+    freopen("CIRCLE.INP","r",stdin);
+    freopen("CIRCLE.OUT","w",stdout);
     cin>>n;
     for (int i=1;i<=n;i++)
         cin>>a[i].x>>a[i].y>>a[i].r;
     for (int i=1;i<=n;i++) {
         for (int j=i+1;j<=n;j++) {
             if (check(i,j)) {
-                cout<<i<<' '<<j<<endl;
+                //cout<<i<<' '<<j<<endl;
                 adj[i].push_back(j);
                 adj[j].push_back(i);
             }

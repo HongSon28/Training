@@ -13,6 +13,8 @@ int dp[1001];
 k last;
 vector<int>v;
 int main() {
+    freopen("thuemay.inp","r",stdin);
+    freopen("thuemay.out","w",stdout);
     cin>>n;
     for (int i=1;i<=n;i++) {
         cin>>a[i].a>>a[i].b>>a[i].c;
@@ -21,7 +23,7 @@ int main() {
     sort(a+1,a+1+n,comp);
     for (int i=1;i<=n;i++) {
         for (int j=0;j<i;j++) {
-            if (a[j].b<=a[i].a) {
+            if (a[j].b<a[i].a) {
                 dp[i]=max(dp[i],dp[j]+a[i].c);
             }
         }
@@ -46,5 +48,5 @@ int main() {
     }
     cout<<cnt<<' '<<res<<endl;
     sort(v.begin(),v.end());
-    for (int i=0;i<v.size();i++) cout<<v[i]<<' ';
+    for (int i=0;i<v.size();i++) cout<<v[i]<<'\n';
 }

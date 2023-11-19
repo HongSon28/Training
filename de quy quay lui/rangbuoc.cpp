@@ -41,18 +41,19 @@ void rec(int k) {
     }
 }
 int main() {
-    string s,s2;
-    while (getline(cin,s),getline(cin,s2)){
+    string s;
+    while (getline(cin,s)){
         v.clear();
         cons.clear();
         for (int i=0;i<s.size();i++)
             if (s[i]!=' ')
                 v.push_back(s[i]);
+        sort(v.begin(),v.end());
         n=v.size();
-        for (int i=0;i<s2.size();i++)
-            if (s2[i]!=' ')
-                cons.push_back(s2[i]);
+        getline(cin,s);
+        for (int i=0;i<s.size();i++)
+            if (s[i]!=' ')
+                cons.push_back(s[i]);
         rec(1);
-        cout<<endl;
     }
 }

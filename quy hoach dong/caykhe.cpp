@@ -19,7 +19,7 @@ void truyvet(int i, int j) {
 int main() {
     int n,W;
     cin>>n>>W;
-    for (int i=1;i<=n;i++) cin>>c[i]>>w[i];
+    for (int i=1;i<=n;i++) cin>>w[i]>>c[i];
     for (int i=0;i<=n;i++) dp[i][0]=0;
     for (int i=0;i<=W;i++) dp[0][i]=0;
     for (int i=1;i<=n;i++) {
@@ -33,6 +33,6 @@ int main() {
         //cout<<endl;
     }
     cout<<dp[n][W]<<endl;
-    truyvet(n,W);
-    for (int i=v.size()-1;i>=0;i--) cout<<v[i]<<' ';
+    //truyvet(n,W);
+    //for (int i=v.size()-1;i>=0;i--) cout<<v[i]<<' ';
 }

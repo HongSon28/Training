@@ -1,20 +1,25 @@
 #include<bits/stdc++.h>
 using namespace std;
-int main() {
-    int n,d;
-    cin>>n>>d;
-    float v[n];
-    float t[n];
-    for (int i=0;i<n;i++) {
-        cin>>v[i];
-        t[i]=d/v[i]+i;
-    }
-    int res=0;
-    for (int i=1;i<n;i++) {
-        for (int j=i-1;j>=0;j--) {
-            if (t[i]<t[j])
-                res++;
+const int N=5000,MX=sqrt(N);
+vector<int>prime,v1;
+vector<vector<int>>v2(N+5);
+bool p[N+5];
+bool used[(1<<19)+5];
+int dp[(1<<19)+5];
+int n,res;
+int a[N+5];
+void seive() {
+    memset(p,true,sizeof(p));
+    p[0]=p[1]=false;
+    for (int i=2;i<=N;i++) {
+        if (p[i]) {
+            prime.push_back(i);
+            for (int j=i*i;j<=N;j+=i) p[j]=false;
         }
     }
-    cout<<res;
+}
+int main() {
+    seive();
+    cout<<prime.size()<<endl;
+    for (auto i:prime) cout<<i<<' ';
 }

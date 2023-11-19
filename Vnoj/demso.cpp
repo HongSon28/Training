@@ -1,19 +1,14 @@
 #include<bits/stdc++.h>
 using namespace std;
+int n;
+string t;
+int c1,c2;
 int main() {
-    int n;
     cin>>n;
-    long long a[n];
-    for (int i=0;i<n;i++) {
-        cin>>a[i];
+    while (n--) {
+        cin>>t;
+        if (t[0]=='-') c1++;
+        else if (t!="0") c2++;
     }
-    int demam=0;
-    int demduong=0;
-    for (int i=0;i<n;i++) {
-        if (a[i]>0)
-            demduong+=1;
-        else if (a[i]<0)
-            demam+=1;
-    }
-    cout<<demam<<" "<<demduong;
+    cout<<c1<<' '<<c2;
 }

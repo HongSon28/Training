@@ -20,7 +20,13 @@ void farthest(int s,int cnt) {
     }
 }
 int main() {
+    freopen("CTREE.INP","r",stdin);
+    freopen("CTREE.OUT","w",stdout);
     cin>>n;
+    if (n==1) {
+        cout<<1<<endl<<1;
+        return 0;
+    }
     for (int i=1;i<n;i++) {
         int u,v;
         cin>>u>>v;
@@ -34,7 +40,6 @@ int main() {
     memset(vis,false,sizeof(vis));
     farthest(end_point1,0);
     int end_point2=node;
-    if (end_point1>end_point2) swap(end_point1,end_point2);
 
     queue<int>q;
     memset(vis,false,sizeof(vis));
@@ -60,6 +65,8 @@ int main() {
     if (path.size()%2==1) {
         cout<<1<<endl<<path[path.size()/2];
     } else {
-        cout<<2<<endl<<path[path.size()/2-1]<<' '<<path[path.size()/2];
+        cout<<2<<endl;
+        if (path[path.size()/2-1]>path[path.size()/2]) swap(path[path.size()/2-1],path[path.size()/2]);
+        cout<<path[path.size()/2-1]<<' '<<path[path.size()/2];
     }
 }

@@ -5,10 +5,9 @@ int main(){
     cin>>n>>t;
     int a[n+2]={},b[n+2]={};
     priority_queue < int > q;
-    for(int i=1;i<=n;i++){
+    for(int i=1;i<=n;i++)
         cin>>a[i]>>b[i];
-    }
-    for(int i=1;i<n;i++){
+    for(int i=1;i<=n;i++){
         int cnt=q.size();
         sum+=a[i]-a[i-1]+b[i];
         q.push(b[i]);
@@ -18,5 +17,7 @@ int main(){
              q.pop();
         }
     }
+    int cnt=q.size();
+    kq=max(kq,cnt);
     cout<<kq;
 }
