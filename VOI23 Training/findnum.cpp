@@ -1,5 +1,8 @@
-#include<bits/stdc++.h>
+	
+#include <bits/stdc++.h>
+ 
 using namespace std;
+ 
 // * BIG INTEGER
  
 typedef vector<int> bigInt;
@@ -121,13 +124,40 @@ ostream& operator << (ostream& cout, const bigInt &a) {
     cout << setw(LENGTH) << setfill('0') << a[i];
   return cout;
 }
+int cnt(int n) {
+	int ans=0;
+	while (n>0) {
+		ans++;
+		n/=10;
+	}
+	return ans;
+}
+int b,c,k,y;
+bigInt B,KC,t,x,ans;
 int main() {
-    string a,b;
-    long long c;
-    cin>>a>>b;
-    //cout<<comp(a,b)<<endl;
-    //cout<<a+b<<endl;
-    //cout<<a-b<<endl;
-    //cout<<a*b;
-    cout<<a/b;
+	ios_base::sync_with_stdio(false);
+	cin.tie(nullptr);
+	cout.tie(nullptr);
+	int tt;
+	cin>>tt;
+	while (tt--) {
+		cin>>b>>c>>k;
+		bool flag=false;
+		B=big(to_string(b)),KC=big(to_string(k*c));
+		y=k*pow(10,cnt(c))-1;
+		t=big("10");
+		for (int sz=1;sz<=1000;sz++) {
+			x=B*t;
+			x=x-KC;
+			ans=x/y;
+			//cout<<sz<<' '<<ans<<' '<<ans.size()<<endl;
+			if (x%y==0) {
+				flag=true;
+				cout<<ans<<'\n';
+				break;
+			} 
+			t=t*10;
+		}
+		if (!flag) cout<<-1<<'\n';
+	}
 }
