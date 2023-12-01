@@ -67,8 +67,8 @@ int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);
-    freopen("TUNNEL.INP","r",stdin);
-    freopen("TUNNEL.OUT","w",stdout);
+    //freopen("TUNNEL.INP","r",stdin);
+    //freopen("TUNNEL.OUT","w",stdout);
     cin>>n>>m>>s>>t;
     for (int i=1;i<=m;i++) {
         int u,v,h,d;
