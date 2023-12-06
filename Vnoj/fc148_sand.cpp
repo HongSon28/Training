@@ -1,12 +1,15 @@
 #include<bits/stdc++.h>
 using namespace std;
-int t;
-long long a,s;
-long long rem;
-long long res;
+long long t,a,s;
 int main() {
-    cin>>t;
-    while (t--) {
-        cin>>a>>s;
-    }
+	ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);	
+	cin>>t;
+	while (t--) {
+		cin>>a>>s;
+		long long dif=s-2*a;
+		if (dif>=0&&(dif&a)==0) cout<<"YES"<<'\n';
+		else cout<<"NO"<<'\n';
+	}
 }
