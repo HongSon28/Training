@@ -1,9 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
-mt19937 rd(chrono::steady_clock::now().time_since_epoch().count());
-long long rand(long long lo,long long hi) {
-    return lo+rd()%(hi-lo+1);
-}
+const int N=5e3;
 int main() {
-
+	freopen("MONEY.INP","w",stdout);
+	cout<<N<<' '<<N<<endl;
+	for (int i=1;i<=N;i++) cout<<i<<' ';
 }
