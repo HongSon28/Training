@@ -2,12 +2,13 @@
 using namespace std;
 const int N=1e3;
 int n,p,k;
-int s1[N+5],s2[N+5],s3[N+5],t1[N+5],t2[N+5],dp[N+5][N+5],temp;
+int s1[N+5],s2[N+5],s3[N+5],res,temp;
 int main() {
 	ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);	
     cin>>n>>p>>k;
+    p=min(p,2*n/k+2);
     cin>>temp;
     while (temp--) {
     	int x;
@@ -25,14 +26,14 @@ int main() {
     	s2[i]=s2[i-1]+t2[i];
     	s3[i]=s3[i-1]+(t1[i]|t2[i]);
     }
-    for (int i=1;i<=n;i++) {
-    	dp[i][0]=dp[i-1][0];
-    	for (int j=1;j<=p;j++) {
-    		dp[i][j]=dp[i-1][j];
-    		int cur=min(k,i);
-    		dp[i][j]=max(dp[i][j],dp[i-cur][j-1]+max(s1[i]-s1[i-cur],s2[i]-s2[i-cur]));
-    		if (j>=2) dp[i][j]=max(dp[i][j],dp[i-cur][j-2]+s3[i]-s3[i-cur]);
+    int dp1[p+1][n+1][k+1]={},dp2[p+1][n+1][k+1]={};
+    for (int i=0;i<=p;i++) {
+    	for (int j=0;j<=n;j++) {
+    		for (int t=0;t<=k;t++) {
+    			dp1[i][j][t]=dp2[i][j][t]=0;
+    		}
     	}
     }
+    for (int q=1;q<=p;q++)
     cout<<dp[n][p];
 }

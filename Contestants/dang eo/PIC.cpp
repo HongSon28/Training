@@ -51,7 +51,7 @@ int main() {
     for (int i=0;i<(int)line2.size();i++){
         long long y1=line2[i].y1,y2=line2[i].y2,val=line2[i].val;
         update(y1,y2,val);
-        if (i==0||i==line.size()-1||line2[i].x>line2[i-1].x) calc();
+        if (i==0||i==line2.size()-1||line2[i].x>line2[i-1].x) calc();
     }
     cout<<res;
 }
