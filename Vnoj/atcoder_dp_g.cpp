@@ -1,28 +1,29 @@
 #include<bits/stdc++.h>
 using namespace std;
+const int N=1e5;
+int n,m;
+vector<vector<int>>adj(N+5);
+int dp[N+5],res;
+void dfs(int u) {
+	if (dp[u]!=-1) return;
+	dp[u]=0;
+	for (auto v:adj[u]) {
+		dfs(v);
+		dp[u]=max(dp[u],dp[v]+1);
+	}
+	res=max(res,dp[u]);
+}
 int main() {
-    int n,m,ans=0;
-    cin>>n>>m;
-    int dp[n+5];
-    vector<vector<int>>adj(n+5);
-    for (int i=0;i<m;i++) {
-        int a,b;
-        cin>>a>>b;
-        adj[a].push_back(b);
-    }
-    for (int i=1;i<=n;i++) dp[i]=1;
-    for (int i=1;i<=n;i++) {
-        stack<int>s;
-        for (auto j:adj[i]) {
-            s.push(j);
-        }
-        while (!s.empty()) {
-            int t=s.top();
-            s.pop();
-            dp[i]=max(dp[i],dp[t]+1);
-            for (auto j:adj[t]) s.push(j);
-        }
-    }
-    for (int i=1;i<=n;i++) ans=max(ans,dp[i]);
-    cout<<ans;
+	ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);	
+	cin>>n>>m;
+	for (int i=1;i<=m;i++) {
+		int u,v;
+		cin>>u>>v;
+		adj[u].push_back(v);
+	}
+	memset(dp,-1,sizeof(dp));
+	for (int i=1;i<=n;i++) dfs(i);
+	cout<<res;
 }
