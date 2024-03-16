@@ -20,8 +20,8 @@ void farthest(int s,int cnt) {
     }
 }
 int main() {
-    freopen("CTREE.INP","r",stdin);
-    freopen("CTREE.OUT","w",stdout);
+    //freopen("CTREE.INP","r",stdin);
+    //freopen("CTREE.OUT","w",stdout);
     cin>>n;
     if (n==1) {
         cout<<1<<endl<<1;
