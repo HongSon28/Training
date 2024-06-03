@@ -1,0 +1,4 @@
+ID  Name                          DOB         Phone      Sales     
+26  Samantha Baker                1992/11/11  555556781  175000    
+7   David Martinez                1980/02/14  555557890  170000    
+22  Rachel Wright                 1996/09/07  555552341  155000    
