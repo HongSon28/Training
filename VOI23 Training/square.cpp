@@ -59,8 +59,8 @@ void solve() {
     cout<<"POSSIBLE"<<'\n';
 }
 int main() {
-    freopen("square.inp","r",stdin);
-    freopen("square.out","w",stdout);
+    //freopen("square.inp","r",stdin);
+    //freopen("square.out","w",stdout);
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
     cout.tie(nullptr);

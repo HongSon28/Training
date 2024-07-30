@@ -7,8 +7,8 @@ pair<int,int>p[N+5];
 vector<int>b(N+5,INT_MAX);
 int res;
 int main() {
-    freopen("GRSORT.INP","r",stdin);
-    freopen("GRSORT.OUT","w",stdout);
+    //freopen("GRSORT.INP","r",stdin);
+    //freopen("GRSORT.OUT","w",stdout);
     cin>>n>>k;
     for (int i=1;i<=n;i++) {
         cin>>p[i].first;
