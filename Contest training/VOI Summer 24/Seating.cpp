@@ -72,12 +72,13 @@ void update(int id,int l,int r,int u,int v,int val) {
 int inf=1e9,res;
 int get(int id,int l,int r,int k) {
 	//cout<<id<<' '<<l<<' '<<r<<' '<<st[id].mx<<endl;
-	if (st[id].mx<k) return inf; 
-	if (l==r) return st[id].pos;
-	down(id,l,r);
+	if (st[id].mx<k) return inf;
+	down(id,l,r); 
 	int mid=(l+r)/2;
-	if (st[id*2].mx>=k) return min(st[id].pos,get(id*2,l,mid,k));
-	return min(st[id].pos,get(id*2+1,mid+1,r,k));
+	if (st[id].pre>=k) return l;
+	if (st[id*2].mx>=k) return get(id*2,l,mid,k);
+	if (st[id*2].suf+st[id*2+1].pre>=k) return mid-st[id*2].suf+1;
+	return get(id*2+1,mid+1,r,k);
 }
 int main() {
 	//freopen("seating.in","r",stdin);
