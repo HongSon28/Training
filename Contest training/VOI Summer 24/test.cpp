@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-const int NTEST = 100;
+const int NTEST = 1;
 
 mt19937 rd(chrono::steady_clock::now().time_since_epoch().count());
 long long Rand(long long l, long long h) {
@@ -12,29 +12,17 @@ int main()
     srand(time(NULL));
     for (int iTest = 1; iTest <= NTEST; iTest++)
     {
-        ofstream inp("FNCS.inp");
-        int n=150;
-        inp<<n<<'\n';
-        for (int i=1;i<=n;i++) inp<<Rand(1,1e9)<<' ';
-        inp<<'\n';
-        for (int i=1;i<=n;i++) {
-            int l=Rand(1,n-1),r=Rand(l+1,n);
-            inp<<l<<' '<<r<<'\n';
+        vector<pair<int,int>>v;
+        ofstream inp("COW.INP");
+        for (int i=1;i<=30;i++) {
+            for (int j=1;j*i<=30;j++) v.push_back({i,j});
         }
-        int q=Rand(3,7);
-        inp<<q<<'\n';
-        for (int i=1;i<=q;i++) {
-            int t=Rand(1,2);
-            if (t==1) inp<<t<<' '<<Rand(1,n)<<' '<<Rand(1,1e9)<<'\n';
-            else {
-                int u=Rand(1,n),v=Rand(u,n);
-                inp<<t<<' '<<u<<' '<<v<<'\n';
-            }
-        }
+        inp<<v.size()<<'\n';
+        for (auto [x,y]:v) inp<<x<<' '<<y<<'\n';
         inp.close();
-        system("FNCS.exe");
-        system("FNCS_brute.exe");
-        if (system("fc FNCS.out FNCS.ans") != 0)
+        system("COW.exe");
+        system("COW2.exe");
+        if (system("fc COW.OUT COW.ANS") != 0)
         {
             cout << "Test " << iTest << ": WRONG!\n";
             return 0;
