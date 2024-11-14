@@ -52,6 +52,7 @@ void test2(int r) { //only max in [r,n]
             hi=mid-1;
         } else lo=mid+1;
     }
+    cout<<p1<<' '<<p2<<endl;
     if (p1==-1||p2==-1||p1<p2) return;
     res=min(res,st1.get(1,1,n,p2,p1)+suf_mx[r]+p[r-1].first);
 }
