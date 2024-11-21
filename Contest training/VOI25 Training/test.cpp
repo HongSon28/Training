@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-const int NTEST = 100;
+const int NTEST = 1;
 
 mt19937 rd(chrono::steady_clock::now().time_since_epoch().count());
 long long rand(long long l, long long h) {
@@ -12,20 +12,21 @@ int main()
     srand(time(NULL));
     for (int iTest = 1; iTest <= NTEST; iTest++)
     {
-        ofstream inp("symetrictable.inp");
-        int n=rand(20,30),m=rand(20,30);
-        inp<<n<<' '<<m<<endl;
-        for (int i=1;i<=n;i++) {
-        	for (int j=1;j<=m;j++) {
-        		int t=rand(0,25);
-        		inp<<(char)('a'+t);
-        	}
-        	inp<<endl;
+        ofstream inp("EXCHANGE.INP");
+        int n=0,p=rand(500,1000);
+        int sum=0;
+        vector<int>a;
+        while (sum<p) {
+        	int t=rand(1,100);
+        	sum+=t;
+        	a.push_back(t);
         }
+        inp<<a.size()<<' '<<p<<endl;
+        for (auto x:a) inp<<x<<' ';
         inp.close();
-        system("symetrictable.exe");
-        system("symetrictable1.exe");
-        if (system("fc symetrictable.out symetrictable.ans") != 0)
+        system("EXCHANGE.exe");
+        system("EXCHANGE1.exe");
+        if (system("fc EXCHANGE.OUT EXCHANGE.ANS") != 0)
         {
             cout << "Test " << iTest << ": WRONG!\n";
             return 0;
