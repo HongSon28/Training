@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-const int NTEST = 1;
+const int NTEST = 1000;
 
 mt19937 rd(chrono::steady_clock::now().time_since_epoch().count());
 long long rand(long long l, long long h) {
@@ -12,21 +12,17 @@ int main()
     srand(time(NULL));
     for (int iTest = 1; iTest <= NTEST; iTest++)
     {
-        ofstream inp("EXCHANGE.INP");
-        int n=0,p=rand(500,1000);
-        int sum=0;
-        vector<int>a;
-        while (sum<p) {
-        	int t=rand(1,100);
-        	sum+=t;
-        	a.push_back(t);
+        ofstream inp("BOX.INP");
+        int n=100;
+        inp<<n<<'\n';
+        for (int i=1;i<=n;i++) {
+        	int a=rand(2,1000000),b=rand(1,a-1);
+        	inp<<a<<' '<<b<<endl;
         }
-        inp<<a.size()<<' '<<p<<endl;
-        for (auto x:a) inp<<x<<' ';
         inp.close();
-        system("EXCHANGE.exe");
-        system("EXCHANGE1.exe");
-        if (system("fc EXCHANGE.OUT EXCHANGE.ANS") != 0)
+        system("boxd4.exe");
+        system("boxd5.exe");
+        if (system("fc BOX.OUT BOX.ANS") != 0)
         {
             cout << "Test " << iTest << ": WRONG!\n";
             return 0;

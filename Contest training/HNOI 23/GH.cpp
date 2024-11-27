@@ -56,7 +56,7 @@ int main() {
         else p=(*c.begin()).y;
         long long r=(*a2.begin()).y-(*a2.begin()).x;
         if (p-q<r) {
-            dat temp=*a1.rbegin();
+            dat temp=*a1.rbegin();		
             a1.erase(a1.find(temp));
             a2.erase(a2.find(temp));
             c.erase(c.begin());
