@@ -12,17 +12,16 @@ int main()
     srand(time(NULL));
     for (int iTest = 1; iTest <= NTEST; iTest++)
     {
-        ofstream inp("BOX.INP");
-        int n=100;
-        inp<<n<<'\n';
-        for (int i=1;i<=n;i++) {
-        	int a=rand(2,1000000),b=rand(1,a-1);
-        	inp<<a<<' '<<b<<endl;
+        ofstream inp("SQUARE.INP");
+        int n=rand(2,4),m=rand(2,min(20/n,8)),t=rand(0,min(5,n*m));
+        inp<<n<<' '<<m<<' '<<t<<endl;
+        for (int i=1;i<=t;i++) {
+            inp<<rand(1,n)<<' '<<rand(1,m)<<' '<<rand(0,1)<<endl;
         }
         inp.close();
-        system("boxd4.exe");
-        system("boxd5.exe");
-        if (system("fc BOX.OUT BOX.ANS") != 0)
+        system("SQUARE.exe");
+        system("SQUARE1.exe");
+        if (system("fc SQUARE.OUT SQUARE.ANS") != 0)
         {
             cout << "Test " << iTest << ": WRONG!\n";
             return 0;
