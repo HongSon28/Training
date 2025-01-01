@@ -12,16 +12,27 @@ int main()
     srand(time(NULL));
     for (int iTest = 1; iTest <= NTEST; iTest++)
     {
-        ofstream inp("SQUARE.INP");
-        int n=rand(2,4),m=rand(2,min(20/n,8)),t=rand(0,min(5,n*m));
-        inp<<n<<' '<<m<<' '<<t<<endl;
-        for (int i=1;i<=t;i++) {
-            inp<<rand(1,n)<<' '<<rand(1,m)<<' '<<rand(0,1)<<endl;
+        ofstream inp("PER.INP");
+        vector<int>v;
+        int n=rand(90,100),q=rand(90,100);
+        inp<<n<<' '<<q<<endl;
+        for (int i=1;i<=n;i++) v.push_back(i);
+        random_shuffle(v.begin(),v.end());
+        for (auto x:v) inp<<x<<' ';
+        inp<<'\n';
+        random_shuffle(v.begin(),v.end());
+        for (auto x:v) inp<<x<<' ';
+        inp<<'\n';
+        for (int i=1;i<=q;i++) {
+            int l=rand(1,n),r=rand(l,n);
+            inp<<l<<' '<<r<<' ';
+            l=rand(1,n),r=rand(l,n);
+            inp<<l<<' '<<r<<endl;
         }
         inp.close();
-        system("SQUARE.exe");
-        system("SQUARE1.exe");
-        if (system("fc SQUARE.OUT SQUARE.ANS") != 0)
+        system("PER.exe");
+        system("PER1.exe");
+        if (system("fc PER.OUT PER.ANS") != 0)
         {
             cout << "Test " << iTest << ": WRONG!\n";
             return 0;
